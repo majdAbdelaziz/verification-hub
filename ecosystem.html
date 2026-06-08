@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المنظومة الرقمية 2026 | مركز التحقق</title>
+<meta name="description" content="تكامل مركز التحقق مع منصة درع المستثمر وأكاديمية الأصول الرقمية — منظومة حماية متكاملة للمستثمر العربي.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#39FF14;--green-dim:rgba(57,255,20,0.08);--green-border:rgba(57,255,20,0.15);--gold:#E0A96D;--blue:#63B3ED;--bg:#0B0F19;--bg2:#080C14;--card:#111827;--muted:#6B7280;}
+body{background:var(--bg);color:#fff;font-family:'Cairo',sans-serif;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,20,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,0.022) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(11,15,25,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-border);padding:0 24px;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900;color:var(--green);text-decoration:none;}
+.nav-logo i{font-size:20px;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#000;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+.main{padding:60px 20px;}
+.container{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.page-header{text-align:center;margin-bottom:55px;}
+.sec-badge{display:inline-flex;align-items:center;gap:7px;background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:20px;}
+.sec-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.3s infinite;}
+.page-header h1{font-size:34px;font-weight:900;margin-bottom:12px;}
+.page-header h1 span{color:var(--green);}
+.page-header p{color:var(--muted);font-size:15px;max-width:680px;margin:0 auto;line-height:1.8;}
+.partner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:24px;}
+.partner-card{border-radius:16px;padding:36px;transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden;animation:fadeUp .6s ease both;}
+.partner-card:nth-child(1){animation-delay:.1s}.partner-card:nth-child(2){animation-delay:.22s}
+.partner-card:hover{transform:translateY(-6px);}
+.partner-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .35s;}
+.partner-card:hover::before{opacity:1;}
+.shield{background:#0D1825;border:1px solid rgba(224,169,109,0.25);}
+.shield:hover{box-shadow:0 12px 40px rgba(224,169,109,0.1);}
+.shield::before{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.academy{background:var(--card);border:1px solid rgba(99,179,237,0.2);}
+.academy:hover{box-shadow:0 12px 40px rgba(99,179,237,0.08);}
+.academy::before{background:linear-gradient(90deg,transparent,var(--blue),transparent);}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px;}
+.card-icon-wrap{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.shield .card-icon-wrap{background:rgba(224,169,109,0.1);border:1px solid rgba(224,169,109,0.2);}
+.shield .card-icon-wrap i{font-size:26px;color:var(--gold);}
+.academy .card-icon-wrap{background:rgba(99,179,237,0.1);border:1px solid rgba(99,179,237,0.2);}
+.academy .card-icon-wrap i{font-size:26px;color:var(--blue);}
+.card-badge{padding:4px 14px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.5px;}
+.shield .card-badge{background:rgba(224,169,109,0.1);color:var(--gold);border:1px solid rgba(224,169,109,0.25);}
+.academy .card-badge{background:rgba(99,179,237,0.1);color:var(--blue);border:1px solid rgba(99,179,237,0.2);}
+.card-title{font-size:22px;font-weight:900;margin-bottom:14px;}
+.shield .card-title{color:var(--gold);}
+.academy .card-title{color:#E5E7EB;}
+.card-desc{font-size:14px;color:#9CA3AF;line-height:1.8;margin-bottom:24px;}
+.features{display:flex;flex-direction:column;gap:10px;}
+.feature-tag{background:rgba(255,255,255,0.03);border-radius:10px;padding:12px 16px;display:flex;align-items:flex-start;gap:12px;border:1px solid rgba(255,255,255,0.05);transition:background .2s;}
+.feature-tag:hover{background:rgba(255,255,255,0.06);}
+.feat-dot{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;}
+.shield .feat-dot{background:var(--gold);}
+.academy .feat-dot{background:var(--blue);}
+.feat-text{font-size:13px;color:#D1D5DB;line-height:1.6;}
+.feat-text strong{display:block;font-size:13px;font-weight:700;margin-bottom:2px;}
+.shield .feat-text strong{color:var(--gold);}
+.academy .feat-text strong{color:var(--blue);}
+.connector{display:flex;align-items:center;justify-content:center;gap:12px;margin:32px auto 0;max-width:500px;padding:14px 24px;background:var(--card);border:1px solid var(--green-border);border-radius:12px;font-size:13px;color:var(--muted);animation:fadeUp .6s .4s ease both;}
+.connector i{font-size:18px;color:var(--green);}
+.connector strong{color:var(--green);}
+footer{background:var(--bg2);border-top:1px solid var(--green-border);padding:40px 20px 20px;}
+.footer-container{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:30px;}
+.footer-brand{flex:1;min-width:250px;}
+.footer-logo{font-size:20px;font-weight:700;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.footer-logo i{font-size:22px;}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:350px;}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+.link-group{min-width:140px;}
+.group-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:15px;}
+.link-group ul{list-style:none;}
+.link-group ul li{margin-bottom:10px;}
+.link-group ul li a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .3s;}
+.link-group ul li a:hover{color:var(--green);}
+.footer-bottom{max-width:1100px;margin:30px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);gap:15px;}
+.crypto-badge{font-family:monospace;background:rgba(57,255,20,0.05);color:rgba(57,255,20,0.7);padding:4px 10px;border-radius:4px;border:1px solid rgba(57,255,20,0.1);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:768px){.partner-grid{grid-template-columns:1fr;}.page-header h1{font-size:26px;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><i class="ti ti-shield-check"></i> مركز التحقق</a>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="algorithm.html">خوارزمية الفحص</a>
+      <a href="ecosystem.html" class="active">المنظومة الرقمية</a>
+      <a href="blog/index.html">المدونة</a>
+      <a href="contact.html">البلاغات</a>
+    </div>
+    <a href="index.html#search" class="nav-cta"><i class="ti ti-search"></i> افحص الآن</a>
+  </div>
+</nav>
+<div class="main">
+<div class="container">
+  <div class="page-header">
+    <div class="sec-badge"><span class="dot"></span> ECOSYSTEM 2026</div>
+    <h1>تكامل <span>المنظومة الرقمية 2026</span></h1>
+    <p>لا يعمل مركز التحقق بمفرده، بل يمثل الركيزة الأمنية الختامية التي تتكامل مع بقية منصات الاستراتيجية لتأمين وتوعية المستثمر من كافة الثغرات.</p>
+  </div>
+  <div class="partner-grid">
+    <div class="partner-card shield">
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="ti ti-shield-half"></i></div>
+        <span class="card-badge">الشريك الاستراتيجي الأول</span>
+      </div>
+      <div class="card-title">منصة "درع المستثمر"</div>
+      <p class="card-desc">منظومة التصنيف الائتماني المجتمعي للشركات المالية. تعمل بالتكامل مع مركز التحقق عبر تبادل بيانات تقييمات المشتركين وتحليل مشاعر السوق للتنبؤ بالانهيارات قبل وقوعها.</p>
+      <div class="features">
+        <div class="feature-tag">
+          <div class="feat-dot"></div>
+          <div class="feat-text"><strong>الذكاء الجمعي (Crowdsourcing)</strong>نظام توثيق تجارب الضحايا بالأدلة الحية المباشرة.</div>
+        </div>
+        <div class="feature-tag">
+          <div class="feat-dot"></div>
+          <div class="feat-text"><strong>تحليل المشاعر (AI Sentiment)</strong>خوارزمية ذكاء اصطناعي تتنبأ بالسلوك المريب للشركات في السوشيال ميديا.</div>
+        </div>
+      </div>
+    </div>
+    <div class="partner-card academy">
+      <div class="card-top">
+        <div class="card-icon-wrap"><i class="ti ti-school"></i></div>
+        <span class="card-badge">التمكين المعرفي والتعليمي</span>
+      </div>
+      <div class="card-title">أكاديمية الأصول الرقمية</div>
+      <p class="card-desc">الذراع التوعوي المصمم لتقليل القلق النفسي وتحويل الضحية إلى خبير. بعد فحص الموقع في مركزنا، توجهك الأكاديمية لبناء جدارك المعرفي الدفاعي لمواجهة أساليب المحتالين.</p>
+      <div class="features">
+        <div class="feature-tag">
+          <div class="feat-dot"></div>
+          <div class="feat-text"><strong>محاكي "النصب" (Fraud Simulator)</strong>نظام تفاعلي يضع المتدرب في مواجهة سيناريوهات احتيال وهمية لاختبار دقة رصده للثغرات.</div>
+        </div>
+        <div class="feature-tag">
+          <div class="feat-dot"></div>
+          <div class="feat-text"><strong>هندسة الإقناع وقراءة البلوكشين</strong>دروس سيكولوجية برمجية تكشف عقود السمارت كونتراكت المفخخة وتتبع مسار الحوالات الرقمية.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="connector">
+    <i class="ti ti-link"></i>
+    <span>المنصتان مرتبطتان بـ <strong>مركز التحقق</strong> — بيانات موحدة، حماية متكاملة</span>
+    <i class="ti ti-shield-check"></i>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo"><i class="ti ti-shield-check"></i> مركز التحقق</div>
+      <div class="footer-desc">المنخل الرقمي الحاسم لفحص البيانات ومطابقة التراخيص. الركيزة الأمنية ضمن رؤية المنظومة الرقمية المتكاملة 2026.</div>
+    </div>
+    <div class="footer-links">
+      <div class="link-group"><div class="group-title">المنظومة الرقمية</div><ul>
+        <li><a href="ecosystem.html">منصة "درع المستثمر"</a></li>
+        <li><a href="ecosystem.html">أكاديمية الأصول الرقمية</a></li>
+        <li><a href="index.html#search">مركز التحقق المباشر</a></li>
+      </ul></div>
+      <div class="link-group"><div class="group-title">الدعم القانوني</div><ul>
+        <li><a href="contact.html">بوابة محامي مجاني</a></li>
+        <li><a href="contact.html">تقديم بلاغ لهيئة الشكاوى</a></li>
+        <li><a href="contact.html">قوائم الحظر المحدثة</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 جميع الحقوق محفوظة. مركز التحقق.</div>
+    <div class="crypto-badge">SECURE SSL // AES-256 BIT ENCRYPTED</div>
+  </div>
+</footer>
+</body>
+</html>

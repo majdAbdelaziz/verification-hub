@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خوارزمية الفحص | مركز التحقق</title>
+<meta name="description" content="تحليل ثلاثي الطبقات يجري برمجياً في أجزاء من الثانية لتفكيك البنية الفنية والقانونية لأي منصة استثمارية.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#39FF14;--green-dim:rgba(57,255,20,0.08);--green-border:rgba(57,255,20,0.15);--bg:#0B0F19;--bg2:#080C14;--card:#111827;--text:#E5E7EB;--muted:#6B7280;}
+body{background:linear-gradient(180deg,#05070B 0%,var(--bg) 100%);min-height:100vh;color:#fff;font-family:'Cairo',sans-serif;padding:0;}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,20,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,0.022) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(11,15,25,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-border);padding:0 24px;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900;color:var(--green);text-decoration:none;}
+.nav-logo i{font-size:20px;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#000;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+.main{padding:40px 20px;}
+.container{max-width:1100px;margin:0 auto;}
+.page-header{text-align:center;margin-bottom:48px;}
+.page-header h1{font-size:36px;font-weight:900;margin-bottom:12px;}
+.page-header h1 span{color:var(--green);text-shadow:0 0 18px rgba(57,255,20,0.35);}
+.page-header p{color:var(--muted);font-size:16px;max-width:680px;margin:0 auto;}
+.input-section{background:var(--card);border:2px solid rgba(57,255,20,0.3);border-radius:16px;padding:30px;margin-bottom:36px;transition:border-color .3s;position:relative;z-index:1;}
+.input-section:focus-within{border-color:var(--green);box-shadow:0 0 24px rgba(57,255,20,0.12);}
+.input-label{font-size:15px;color:var(--muted);margin-bottom:14px;display:block;}
+.input-row{display:flex;gap:12px;}
+.url-input{flex:1;background:#05070B;border:1px solid rgba(57,255,20,0.2);border-radius:10px;padding:14px 18px;font-size:15px;color:#fff;font-family:monospace;outline:none;transition:border-color .3s;direction:ltr;}
+.url-input::placeholder{color:#4B5563;}
+.url-input:focus{border-color:var(--green);}
+.scan-btn{background:var(--green);color:#000;border:none;border-radius:10px;padding:14px 30px;font-size:16px;font-weight:900;font-family:'Cairo',sans-serif;cursor:pointer;white-space:nowrap;transition:all .25s;}
+.scan-btn:hover:not(:disabled){background:#5FFF30;box-shadow:0 0 20px rgba(57,255,20,0.5);transform:translateY(-1px);}
+.scan-btn:disabled{background:#1F2937;color:#4B5563;cursor:not-allowed;transform:none;}
+.interactive-sandbox{background:var(--card);border:2px solid var(--green);border-radius:16px;padding:30px;margin-bottom:36px;box-shadow:0 0 30px rgba(57,255,20,0.08);position:relative;z-index:1;}
+.sandbox-title{font-size:18px;font-weight:700;text-align:center;margin-bottom:24px;}
+.tabs-container{display:flex;justify-content:center;gap:12px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{background:#1F2937;color:var(--muted);border:1px solid rgba(57,255,20,0.2);padding:11px 22px;font-size:14px;font-weight:700;border-radius:8px;cursor:pointer;font-family:'Cairo',sans-serif;transition:all .25s;}
+.tab-btn.active,.tab-btn:hover{background:var(--green);color:#000;box-shadow:0 0 14px rgba(57,255,20,0.4);border-color:var(--green);}
+.tab-btn:disabled{opacity:.4;cursor:not-allowed;background:#1F2937;color:#4B5563;box-shadow:none;}
+.console-display{background:#05070B;border-radius:10px;padding:22px;font-family:monospace;font-size:13px;line-height:1.9;min-height:150px;border-right:4px solid var(--green);direction:ltr;text-align:left;position:relative;overflow:hidden;}
+.console-display .cursor{display:inline-block;width:8px;height:14px;background:var(--green);animation:blink .9s infinite;vertical-align:middle;margin-right:2px;}
+.danger-section{background:var(--card);border:1px solid rgba(57,255,20,0.15);border-radius:16px;padding:28px 32px;margin-bottom:36px;display:none;position:relative;z-index:1;}
+.danger-section.visible{display:block;}
+.danger-label{font-size:15px;color:var(--muted);margin-bottom:16px;text-align:center;}
+.meter-track{background:#1F2937;border-radius:999px;height:20px;overflow:hidden;margin-bottom:10px;}
+.meter-fill{height:100%;border-radius:999px;width:0%;transition:width 1.2s cubic-bezier(0.4,0,0.2,1),background 1.2s;}
+.meter-ticks{display:flex;justify-content:space-between;font-size:11px;color:#4B5563;padding:0 4px;margin-bottom:18px;}
+.danger-score{text-align:center;font-size:42px;font-weight:900;font-family:monospace;transition:color 1s;}
+.danger-verdict{text-align:center;font-size:15px;margin-top:6px;color:var(--muted);font-weight:700;letter-spacing:1px;}
+.report-section{background:var(--card);border:1px solid rgba(57,255,20,0.15);border-radius:16px;padding:32px;margin-bottom:36px;display:none;animation:fadeUp .5s ease;position:relative;z-index:1;}
+.report-section.visible{display:block;}
+.report-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.07);padding-bottom:18px;}
+.report-icon{font-size:32px;}
+.report-title{font-size:20px;font-weight:900;}
+.report-subtitle{font-size:13px;color:#6B7280;font-family:monospace;}
+.report-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:24px;}
+.report-card{background:#0B0F19;border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.05);}
+.report-card-label{font-size:12px;color:#6B7280;margin-bottom:8px;}
+.report-card-value{font-size:15px;font-weight:700;}
+.report-card-value.green{color:var(--green);}
+.report-card-value.red{color:#FF3333;}
+.report-card-value.yellow{color:#FFD700;}
+.report-recommendation{background:#0B0F19;border-radius:10px;padding:20px;border-right:4px solid var(--green);font-size:15px;line-height:1.8;color:#D1D5DB;}
+.report-recommendation.danger-rec{border-right-color:#FF3333;}
+.report-recommendation.warn-rec{border-right-color:#FFD700;}
+.algo-step{background:var(--card);border:1px solid rgba(57,255,20,0.08);border-radius:16px;padding:32px;margin-bottom:24px;display:flex;align-items:center;gap:28px;transition:border-color .4s,box-shadow .4s;position:relative;z-index:1;}
+.algo-step.scanning{border-color:rgba(57,255,20,0.5);box-shadow:0 0 20px rgba(57,255,20,0.08);}
+.algo-step.done-safe{border-color:rgba(57,255,20,0.4);}
+.algo-step.done-warn{border-color:rgba(255,215,0,0.4);}
+.algo-step.done-danger{border-color:rgba(255,51,51,0.4);}
+.step-number{font-size:44px;font-weight:900;color:rgba(57,255,20,0.08);font-family:monospace;line-height:1;min-width:60px;text-align:center;transition:color .4s;}
+.algo-step.scanning .step-number{color:rgba(57,255,20,0.4);animation:pulseNum 1s infinite;}
+.algo-step.done-safe .step-number{color:rgba(57,255,20,0.5);}
+.algo-step.done-warn .step-number{color:rgba(255,215,0,0.5);}
+.algo-step.done-danger .step-number{color:rgba(255,51,51,0.5);}
+.step-title{font-size:20px;font-weight:700;color:var(--green);margin-bottom:10px;}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.75;}
+.step-badge{margin-top:12px;padding:4px 14px;border-radius:999px;font-size:12px;font-weight:700;display:none;}
+.step-badge.show{display:inline-block;}
+.step-badge.safe{background:rgba(57,255,20,0.12);color:var(--green);border:1px solid rgba(57,255,20,0.3);}
+.step-badge.warn{background:rgba(255,215,0,0.12);color:#FFD700;border:1px solid rgba(255,215,0,0.3);}
+.step-badge.danger{background:rgba(255,51,51,0.12);color:#FF3333;border:1px solid rgba(255,51,51,0.3);}
+footer{background:var(--bg2);border-top:1px solid var(--green-border);padding:40px 20px 20px;}
+.footer-container{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:30px;}
+.footer-brand{flex:1;min-width:250px;}
+.footer-logo{font-size:20px;font-weight:700;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.footer-logo i{font-size:22px;}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:350px;}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+.link-group{min-width:140px;}
+.group-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:15px;}
+.link-group ul{list-style:none;}
+.link-group ul li{margin-bottom:10px;}
+.link-group ul li a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .3s;}
+.link-group ul li a:hover{color:var(--green);}
+.footer-bottom{max-width:1100px;margin:30px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);gap:15px;}
+.crypto-badge{font-family:monospace;background:rgba(57,255,20,0.05);color:rgba(57,255,20,0.7);padding:4px 10px;border-radius:4px;border:1px solid rgba(57,255,20,0.1);}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulseNum{0%,100%{opacity:1}50%{opacity:.4}}
+@media(max-width:768px){.algo-step{flex-direction:column;text-align:center;}.input-row{flex-direction:column;}.scan-btn{width:100%;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><i class="ti ti-shield-check"></i> مركز التحقق</a>
+    <div class="nav-links">
+      <a href="../index.html">الرئيسية</a>
+      <a href="algorithm.html" class="active">خوارزمية الفحص</a>
+      <a href="../ecosystem.html">المنظومة الرقمية</a>
+      <a href="../blog/index.html">المدونة</a>
+      <a href="../contact.html">البلاغات</a>
+    </div>
+    <a href="../index.html#search" class="nav-cta"><i class="ti ti-search"></i> افحص الآن</a>
+  </div>
+</nav>
+<div class="main">
+<div class="container">
+  <div class="page-header">
+    <h1>آلية عمل <span>المنخل الرقمي</span></h1>
+    <p>تحليل ثلاثي الطبقات يجري برمجياً في أجزاء من الثانية لتفكيك البنية الفنية والقانونية لأي منصة استثمارية.</p>
+  </div>
+  <div class="input-section">
+    <label class="input-label">أدخل رابط المنصة المشبوهة للفحص الفوري:</label>
+    <div class="input-row">
+      <input class="url-input" id="urlInput" type="text" placeholder="https://example-trading-platform.com">
+      <button class="scan-btn" id="scanBtn" onclick="startFullScan()">فحص الآن ←</button>
+    </div>
+  </div>
+  <div class="interactive-sandbox">
+    <div class="sandbox-title">لوحة محاكاة فحص خوارزميات المنظومة الحية</div>
+    <div class="tabs-container">
+      <button class="tab-btn" id="tab1" onclick="runTab('domain',this)" disabled>1. فحص النطاق</button>
+      <button class="tab-btn" id="tab2" onclick="runTab('license',this)" disabled>2. مطابقة التراخيص</button>
+      <button class="tab-btn" id="tab3" onclick="runTab('blacklist',this)" disabled>3. رادار الحظر</button>
+    </div>
+    <div class="console-display" id="sandboxConsole">
+      <span style="color:#39FF14;">> SYSTEM READY.</span><br>
+      <span style="color:#4B5563;">> أدخل رابط المنصة أعلاه واضغط "فحص الآن" لبدء التحليل...</span><br>
+      <span class="cursor"></span>
+    </div>
+  </div>
+  <div class="danger-section" id="dangerSection">
+    <div class="danger-label">مؤشر الخطورة الإجمالي</div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+    <div class="meter-ticks"><span>آمن</span><span>منخفض</span><span>متوسط</span><span>مرتفع</span><span>خطر شديد</span></div>
+    <div class="danger-score" id="dangerScore">0%</div>
+    <div class="danger-verdict" id="dangerVerdict">—</div>
+  </div>
+  <div class="report-section" id="reportSection">
+    <div class="report-header">
+      <div class="report-icon" id="reportIcon">📋</div>
+      <div><div class="report-title" id="reportTitle">التقرير النهائي</div><div class="report-subtitle" id="reportUrl" style="direction:ltr"></div></div>
+    </div>
+    <div class="report-grid" id="reportGrid"></div>
+    <div class="report-recommendation" id="reportRec"></div>
+  </div>
+  <div class="algo-step" id="step1">
+    <div class="step-number">01</div>
+    <div><h3 class="step-title">تحليل الجدارة الفنية وعمر النطاق</h3>
+    <p class="step-desc">90% من منصات النصب تعتمد على نطاقات حديثة لا يتجاوز عمرها 6 أشهر.</p>
+    <span class="step-badge" id="badge1"></span></div>
+  </div>
+  <div class="algo-step" id="step2">
+    <div class="step-number">02</div>
+    <div><h3 class="step-title">المطابقة المتبادلة للتراخيص الرقابية</h3>
+    <p class="step-desc">ربط آلي ولحظي مع قواعد بيانات الهيئات المالية الدولية (FCA، CySEC) للتحقق من سريان التراخيص.</p>
+    <span class="step-badge" id="badge2"></span></div>
+  </div>
+  <div class="algo-step" id="step3">
+    <div class="step-number">03</div>
+    <div><h3 class="step-title">مزامنة قوائم الحظر والشكاوى</h3>
+    <p class="step-desc">تكامل فوري مع بوابات الدعم القانوني الشريكة لتحديد وحظر المنصات المشبوهة مسبقاً.</p>
+    <span class="step-badge" id="badge3"></span></div>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo"><i class="ti ti-shield-check"></i> مركز التحقق</div>
+      <div class="footer-desc">المنخل الرقمي الحاسم لفحص البيانات ومطابقة التراخيص. الركيزة الأمنية ضمن رؤية المنظومة الرقمية المتكاملة 2026.</div>
+    </div>
+    <div class="footer-links">
+      <div class="link-group"><div class="group-title">المنظومة الرقمية</div><ul>
+        <li><a href="../ecosystem.html">منصة "درع المستثمر"</a></li>
+        <li><a href="../ecosystem.html">أكاديمية الأصول الرقمية</a></li>
+        <li><a href="../index.html#search">مركز التحقق المباشر</a></li>
+      </ul></div>
+      <div class="link-group"><div class="group-title">الدعم القانوني</div><ul>
+        <li><a href="../contact.html">بوابة محامي مجاني</a></li>
+        <li><a href="../contact.html">تقديم بلاغ لهيئة الشكاوى</a></li>
+        <li><a href="../contact.html">قوائم الحظر المحدثة</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 جميع الحقوق محفوظة. مركز التحقق.</div>
+    <div class="crypto-badge">SECURE SSL // AES-256 BIT ENCRYPTED</div>
+  </div>
+</footer>
+<script>
+var scanResults={},scanning=false;
+var SCENARIOS={
+  domain:[
+    {lines:[{t:0,c:'#39FF14',text:'> INITIALIZING DOMAIN INTELLIGENCE MODULE...'},{t:400,c:'#9CA3AF',text:'> Parsing input URL structure...'},{t:900,c:'#fff',text:'[WHOIS] Querying global WHOIS database...'},{t:1500,c:'#fff',text:'[METADATA] target: "{URL}"'},{t:2000,c:'#fff',text:'[METADATA] registrar: "Namecheap Inc."'},{t:2500,c:'#fff',text:'[METADATA] creation_date: 2026-03-12 (82 days ago)'},{t:3100,c:'#FF3333',text:'[CRITICAL] Domain age < 6 months. HIGH FRAUD PATTERN DETECTED.'}],result:'danger',badge:'نطاق مشبوه — عمره أقل من 6 أشهر',score:35},
+    {lines:[{t:0,c:'#39FF14',text:'> INITIALIZING DOMAIN INTELLIGENCE MODULE...'},{t:400,c:'#9CA3AF',text:'> Parsing input URL structure...'},{t:900,c:'#fff',text:'[WHOIS] Querying global WHOIS database...'},{t:1500,c:'#fff',text:'[METADATA] target: "{URL}"'},{t:2000,c:'#fff',text:'[METADATA] registrar: "GoDaddy LLC"'},{t:2500,c:'#fff',text:'[METADATA] creation_date: 2019-07-04 (5 years ago)'},{t:3100,c:'#39FF14',text:'[PASS] Domain age > 2 years. No age-related risk detected.'}],result:'safe',badge:'نطاق موثوق — عمره أكثر من سنتين',score:5},
+    {lines:[{t:0,c:'#39FF14',text:'> INITIALIZING DOMAIN INTELLIGENCE MODULE...'},{t:400,c:'#9CA3AF',text:'> Parsing input URL structure...'},{t:900,c:'#fff',text:'[WHOIS] Querying global WHOIS database...'},{t:1500,c:'#fff',text:'[METADATA] target: "{URL}"'},{t:2000,c:'#fff',text:'[METADATA] registrar: "Tucows Inc."'},{t:2500,c:'#fff',text:'[METADATA] creation_date: 2023-11-18 (8 months ago)'},{t:3100,c:'#FFD700',text:'[WARNING] Domain is relatively new (< 1 year). Monitor closely.'}],result:'warn',badge:'نطاق حديث — أقل من سنة',score:20},
+  ],
+  license:[
+    {lines:[{t:0,c:'#39FF14',text:'> PINGING REGULATORY CROSS-MATCH ENGINE...'},{t:500,c:'#9CA3AF',text:'> Connecting to FCA / CySEC / ASIC live APIs...'},{t:1100,c:'#fff',text:'[API] Searching entity by domain name...'},{t:1800,c:'#FFD700',text:'[WARNING] Entity name mismatch detected.'},{t:2300,c:'#fff',text:'[INFO] License belongs to offshore shell. Not the active broker.'},{t:3000,c:'#FF3333',text:'[CRITICAL] No valid regulatory authorization confirmed.'}],result:'danger',badge:'لا يوجد ترخيص رسمي صالح',score:40},
+    {lines:[{t:0,c:'#39FF14',text:'> PINGING REGULATORY CROSS-MATCH ENGINE...'},{t:500,c:'#9CA3AF',text:'> Connecting to FCA / CySEC / ASIC live APIs...'},{t:1100,c:'#fff',text:'[API] Searching entity by domain name...'},{t:1800,c:'#39FF14',text:'[MATCH] FCA License #793560 — VERIFIED.'},{t:2300,c:'#fff',text:'[INFO] Licensed entity matches registered broker name.'},{t:3000,c:'#39FF14',text:'[PASS] Full regulatory compliance confirmed.'}],result:'safe',badge:'مرخص رسمياً من FCA',score:5},
+    {lines:[{t:0,c:'#39FF14',text:'> PINGING REGULATORY CROSS-MATCH ENGINE...'},{t:500,c:'#9CA3AF',text:'> Connecting to FCA / CySEC / ASIC live APIs...'},{t:1100,c:'#fff',text:'[API] Searching entity by domain name...'},{t:1800,c:'#FFD700',text:'[WARNING] License found under offshore jurisdiction (Vanuatu FSC).'},{t:2300,c:'#fff',text:'[INFO] Offshore license offers minimal investor protection.'},{t:3000,c:'#FFD700',text:'[CAUTION] Proceed with extreme care.'}],result:'warn',badge:'ترخيص من جهة أوفشور',score:25},
+  ],
+  blacklist:[
+    {lines:[{t:0,c:'#39FF14',text:'> SYNCHRONIZING BLACKLIST RADAR...'},{t:500,c:'#9CA3AF',text:'> Downloading partner complaints feed...'},{t:1100,c:'#fff',text:'[SYNC] Checking 4 partner databases...'},{t:1700,c:'#FF3333',text:'[MATCH] 14 active complaints found.'},{t:2200,c:'#fff',text:'[INFO] Status: BLOCKED BY COMPLAINTS AUTHORITY.'},{t:3000,c:'#FF3333',text:'[CRITICAL] DO NOT INVEST. Confirmed scam platform.'}],result:'danger',badge:'14 شكوى نشطة — محظور',score:35},
+    {lines:[{t:0,c:'#39FF14',text:'> SYNCHRONIZING BLACKLIST RADAR...'},{t:500,c:'#9CA3AF',text:'> Downloading partner complaints feed...'},{t:1100,c:'#fff',text:'[SYNC] Checking 4 partner databases...'},{t:1700,c:'#39FF14',text:'[CLEAR] No matches found in any blacklist.'},{t:2200,c:'#fff',text:'[INFO] Zero complaints on record.'},{t:3000,c:'#39FF14',text:'[PASS] Platform not flagged in any database.'}],result:'safe',badge:'غير مدرج في أي قائمة حظر',score:0},
+    {lines:[{t:0,c:'#39FF14',text:'> SYNCHRONIZING BLACKLIST RADAR...'},{t:500,c:'#9CA3AF',text:'> Downloading partner complaints feed...'},{t:1100,c:'#fff',text:'[SYNC] Checking 4 partner databases...'},{t:1700,c:'#FFD700',text:'[WARNING] 3 unverified complaints in community board.'},{t:2200,c:'#fff',text:'[INFO] Complaints under review — not yet confirmed.'},{t:3000,c:'#FFD700',text:'[CAUTION] Monitor situation closely before investing.'}],result:'warn',badge:'3 شكاوى قيد المراجعة',score:15},
+  ]
+};
+function getDomain(url){try{var u=url.trim();if(!u.startsWith('http'))u='https://'+u;return new URL(u).hostname.replace('www.','');}catch(e){return url.trim();}}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function typeLines(lines,url,callback){
+  var box=document.getElementById('sandboxConsole');
+  box.innerHTML='<span class="cursor"></span>';
+  var i=0;
+  function addLine(line){
+    var cursor=box.querySelector('.cursor');
+    var span=document.createElement('span');
+    span.style.color=line.c;span.textContent='> ';
+    box.insertBefore(span,cursor);box.insertBefore(document.createElement('br'),cursor);
+    var text=line.text.replace('{URL}',getDomain(url));var ci=0;
+    var interval=setInterval(function(){
+      span.textContent+=text[ci];ci++;
+      if(ci>=text.length){clearInterval(interval);i++;
+        if(i<lines.length){setTimeout(function(){addLine(lines[i]);},lines[i].t-lines[i-1].t);}
+        else if(callback){setTimeout(callback,400);}
+      }
+    },18);
+  }
+  setTimeout(function(){addLine(lines[0]);},100);
+}
+function runTab(type,btn){
+  if(scanning)return;
+  var url=document.getElementById('urlInput').value;if(!url.trim())return;
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var scenario=pick(SCENARIOS[type]);scanResults[type]=scenario;
+  typeLines(scenario.lines,url,null);
+}
+async function startFullScan(){
+  var url=document.getElementById('urlInput').value.trim();
+  if(!url){document.getElementById('urlInput').focus();return;}
+  if(scanning)return;scanning=true;
+  scanResults={};
+  document.getElementById('dangerSection').classList.remove('visible');
+  document.getElementById('reportSection').classList.remove('visible');
+  ['step1','step2','step3'].forEach(function(id){document.getElementById(id).className='algo-step';});
+  ['badge1','badge2','badge3'].forEach(function(id){var b=document.getElementById(id);b.className='step-badge';b.textContent='';});
+  document.getElementById('meterFill').style.width='0%';
+  document.getElementById('dangerScore').textContent='0%';
+  document.getElementById('dangerVerdict').textContent='—';
+  var scanBtn=document.getElementById('scanBtn');
+  scanBtn.disabled=true;scanBtn.textContent='جاري الفحص...';
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.disabled=true;b.classList.remove('active');});
+  var steps=['domain','license','blacklist'];
+  var stepEls=['step1','step2','step3'];
+  var tabIds=['tab1','tab2','tab3'];
+  var badgeIds=['badge1','badge2','badge3'];
+  for(var i=0;i<3;i++){
+    var type=steps[i];var stepEl=document.getElementById(stepEls[i]);
+    var tabEl=document.getElementById(tabIds[i]);var badgeEl=document.getElementById(badgeIds[i]);
+    stepEl.classList.add('scanning');tabEl.classList.add('active');
+    var scenario=pick(SCENARIOS[type]);scanResults[type]=scenario;
+    await new Promise(function(resolve){typeLines(scenario.lines,url,resolve);});
+    tabEl.classList.remove('active');stepEl.classList.remove('scanning');
+    stepEl.classList.add('done-'+scenario.result);
+    badgeEl.textContent=scenario.badge;badgeEl.className='step-badge show '+scenario.result;
+  }
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.disabled=false;});
+  showResults(url);scanning=false;scanBtn.disabled=false;scanBtn.textContent='فحص الآن ←';
+}
+function showResults(url){
+  var totalScore=(scanResults.domain&&scanResults.domain.score||0)+(scanResults.license&&scanResults.license.score||0)+(scanResults.blacklist&&scanResults.blacklist.score||0);
+  var pct=Math.min(100,totalScore);
+  var section=document.getElementById('dangerSection');section.classList.add('visible');
+  var fill=document.getElementById('meterFill');var scoreEl=document.getElementById('dangerScore');var verdictEl=document.getElementById('dangerVerdict');
+  setTimeout(function(){
+    var color,verdict;
+    if(pct>=65){color='#FF3333';verdict='⚠️ منصة عالية الخطورة — لا تستثمر';}
+    else if(pct>=35){color='#FFD700';verdict='⚡ منصة مشبوهة — توخَّ الحذر الشديد';}
+    else{color='#39FF14';verdict='✅ منصة منخفضة الخطورة';}
+    fill.style.width=pct+'%';fill.style.background=color;
+    scoreEl.textContent=pct+'%';scoreEl.style.color=color;verdictEl.textContent=verdict;
+  },200);
+  var domRes=scanResults.domain&&scanResults.domain.result;
+  var licRes=scanResults.license&&scanResults.license.result;
+  var blkRes=scanResults.blacklist&&scanResults.blacklist.result;
+  var colorMap={safe:'green',warn:'yellow',danger:'red'};
+  document.getElementById('reportGrid').innerHTML=
+    '<div class="report-card"><div class="report-card-label">عمر النطاق</div><div class="report-card-value '+colorMap[domRes]+'">'+scanResults.domain.badge+'</div></div>'
+    +'<div class="report-card"><div class="report-card-label">الترخيص الرقابي</div><div class="report-card-value '+colorMap[licRes]+'">'+scanResults.license.badge+'</div></div>'
+    +'<div class="report-card"><div class="report-card-label">قوائم الحظر</div><div class="report-card-value '+colorMap[blkRes]+'">'+scanResults.blacklist.badge+'</div></div>'
+    +'<div class="report-card"><div class="report-card-label">مستوى الخطورة الكلي</div><div class="report-card-value '+(pct>=65?'red':pct>=35?'yellow':'green')+'">'+pct+'%</div></div>';
+  var recClass='',recText='';
+  if(pct>=65){recClass='danger-rec';recText='🚫 <strong>توصية المنظومة: ابتعد فوراً.</strong> تُصنّف هذه المنصة ضمن الفئة عالية الخطورة. لا تودع أي مبالغ وتواصل مع فريق درع المستثمر إن كنت قد تعاملت معها مسبقاً.';}
+  else if(pct>=35){recClass='warn-rec';recText='⚡ <strong>توصية المنظومة: توخَّ الحذر الشديد.</strong> رصدت المنظومة مؤشرات مقلقة تستوجب مزيداً من التحقق قبل اتخاذ أي قرار استثماري.';}
+  else{recClass='';recText='✅ <strong>توصية المنظومة: نتائج مطمئنة.</strong> لم ترصد المنظومة مؤشرات خطورة واضحة. مع ذلك، الفحص الآلي لا يُغني عن البحث الشخصي والتحقق المستمر.';}
+  document.getElementById('reportIcon').textContent=pct>=65?'🚨':pct>=35?'⚠️':'✅';
+  document.getElementById('reportTitle').textContent=pct>=65?'تقرير: منصة خطرة':pct>=35?'تقرير: منصة مشبوهة':'تقرير: منصة مطمئنة';
+  document.getElementById('reportUrl').textContent=getDomain(url);
+  document.getElementById('reportRec').className='report-recommendation '+recClass;
+  document.getElementById('reportRec').innerHTML=recText;
+  document.getElementById('reportSection').classList.add('visible');
+  document.getElementById('reportSection').scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
+</body>
+</html>

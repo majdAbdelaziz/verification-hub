@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>البلاغات العاجلة | مركز التحقق</title>
+<meta name="description" content="أرسل بلاغاً عن منصة مشبوهة لإدراجها في رادار الحظر وحماية بقية المستثمرين.">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#39FF14;--green-dim:rgba(57,255,20,0.08);--green-border:rgba(57,255,20,0.15);--red:#FF4444;--bg:#0B0F19;--bg2:#080C14;--card:#111827;--muted:#6B7280;}
+body{background:var(--bg);color:#fff;font-family:'Cairo',sans-serif;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,20,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,0.022) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+nav{position:sticky;top:0;z-index:100;background:rgba(11,15,25,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-border);padding:0 24px;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900;color:var(--green);text-decoration:none;}
+.nav-logo i{font-size:20px;}
+.nav-links{display:flex;align-items:center;gap:20px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#000;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+.main{padding:60px 20px;}
+.container{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+.page-header{text-align:center;margin-bottom:55px;}
+.sec-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(255,68,68,0.07);color:var(--red);border:1px solid rgba(255,68,68,0.25);padding:5px 16px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:2px;margin-bottom:20px;}
+.sec-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1s infinite;}
+.page-header h1{font-size:34px;font-weight:900;margin-bottom:12px;}
+.page-header h1 span{color:var(--red);}
+.page-header p{color:var(--muted);font-size:15px;max-width:700px;margin:0 auto;line-height:1.8;}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;}
+.contact-info-card{background:var(--card);border:1px solid var(--green-border);border-radius:16px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;animation:fadeUp .6s .1s ease both;position:relative;overflow:hidden;}
+.contact-info-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.info-title{font-size:19px;font-weight:700;color:var(--green);margin-bottom:22px;}
+.contact-method{display:flex;align-items:center;gap:14px;background:var(--bg);padding:14px 16px;border-radius:10px;margin-bottom:12px;border-right:3px solid rgba(57,255,20,0.4);transition:border-color .3s,background .3s;}
+.contact-method:last-of-type{margin-bottom:0;}
+.contact-method:hover{border-right-color:var(--green);background:#0d1220;}
+.method-icon-wrap{width:38px;height:38px;border-radius:10px;background:var(--green-dim);border:1px solid var(--green-border);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.method-icon-wrap i{font-size:18px;color:var(--green);}
+.method-text h4{font-size:12px;color:var(--muted);margin-bottom:3px;font-weight:600;}
+.method-text p{font-size:13px;font-weight:700;color:#E5E7EB;font-family:monospace;}
+.secure-note{display:flex;align-items:center;justify-content:center;gap:7px;font-size:11px;color:#374151;font-family:monospace;margin-top:22px;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.06);}
+.secure-note i{font-size:13px;color:var(--green);}
+.report-form-card{background:var(--card);border:1px solid rgba(255,68,68,0.2);border-radius:16px;padding:32px;animation:fadeUp .6s .22s ease both;position:relative;overflow:hidden;}
+.report-form-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent);}
+.form-title{font-size:19px;font-weight:700;color:var(--red);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+.form-title i{font-size:20px;}
+.form-group{margin-bottom:18px;}
+.form-group label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;color:#9CA3AF;}
+.form-control{width:100%;background:var(--bg);border:1px solid #1F2937;border-radius:8px;padding:11px 14px;color:#fff;font-family:'Cairo',sans-serif;font-size:14px;outline:none;transition:border-color .3s;}
+.form-control:focus{border-color:rgba(255,68,68,0.5);}
+.form-control::placeholder{color:#374151;}
+textarea.form-control{resize:none;}
+.submit-btn{width:100%;padding:14px;background:var(--red);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;font-family:'Cairo',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s,box-shadow .3s,transform .2s;}
+.submit-btn i{font-size:18px;}
+.submit-btn:hover{background:#cc2929;box-shadow:0 0 20px rgba(255,51,51,0.3);transform:translateY(-1px);}
+.submit-btn:active{transform:translateY(0);}
+.form-status{margin-top:14px;font-size:12px;color:var(--green);font-family:monospace;display:none;text-align:center;background:var(--green-dim);border:1px solid var(--green-border);border-radius:8px;padding:10px;line-height:1.6;}
+footer{background:var(--bg2);border-top:1px solid var(--green-border);padding:40px 20px 20px;}
+.footer-container{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:30px;}
+.footer-brand{flex:1;min-width:250px;}
+.footer-logo{font-size:20px;font-weight:700;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.footer-logo i{font-size:22px;}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:350px;}
+.footer-links{display:flex;gap:40px;flex-wrap:wrap;}
+.link-group{min-width:140px;}
+.group-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:15px;}
+.link-group ul{list-style:none;}
+.link-group ul li{margin-bottom:10px;}
+.link-group ul li a{color:var(--muted);text-decoration:none;font-size:13px;transition:color .3s;}
+.link-group ul li a:hover{color:var(--green);}
+.footer-bottom{max-width:1100px;margin:30px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);gap:15px;}
+.crypto-badge{font-family:monospace;background:rgba(57,255,20,0.05);color:rgba(57,255,20,0.7);padding:4px 10px;border-radius:4px;border:1px solid rgba(57,255,20,0.1);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.page-header h1{font-size:26px;}.contact-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><i class="ti ti-shield-check"></i> مركز التحقق</a>
+    <div class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="algorithm.html">خوارزمية الفحص</a>
+      <a href="ecosystem.html">المنظومة الرقمية</a>
+      <a href="blog/index.html">المدونة</a>
+      <a href="contact.html" class="active">البلاغات</a>
+    </div>
+    <a href="index.html#search" class="nav-cta"><i class="ti ti-search"></i> افحص الآن</a>
+  </div>
+</nav>
+<div class="main">
+<div class="container">
+  <div class="page-header">
+    <div class="sec-badge"><span class="dot"></span> EMERGENCY RESPONSE</div>
+    <h1>مركز الاستجابة <span>والبلاغات العاجلة</span></h1>
+    <p>إذا كشف لك فحص خوارزمية مركز التحقق وجود نشاط مشبوه أو ترخيص منتهٍ، أرسل البيانات فوراً لإدراج المنصة في رادار الحظر الحاد لحماية بقية المستثمرين.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info-card">
+      <div>
+        <div class="info-title">قنوات الاستجابة السريعة</div>
+        <div class="contact-method">
+          <div class="method-icon-wrap"><i class="ti ti-alert-triangle"></i></div>
+          <div class="method-text"><h4>الخط الساخن للطوارئ المالية</h4><p>emergency@verification-hub.int</p></div>
+        </div>
+        <div class="contact-method">
+          <div class="method-icon-wrap"><i class="ti ti-gavel"></i></div>
+          <div class="method-text"><h4>الدعم القانوني الشريك — بوابة محامي مجاني</h4><p>legal-support@free-lawyer.net</p></div>
+        </div>
+        <div class="contact-method">
+          <div class="method-icon-wrap"><i class="ti ti-antenna"></i></div>
+          <div class="method-text"><h4>تكامل بيانات هيئة الشكاوى</h4><p>api-feed.complaints-authority.gov</p></div>
+        </div>
+      </div>
+      <div class="secure-note"><i class="ti ti-lock"></i> SECURE NODE ACCESS // END-TO-END ENCRYPTED</div>
+    </div>
+    <div class="report-form-card">
+      <div class="form-title"><i class="ti ti-send"></i> رفع بلاغ عن منصة مشبوهة</div>
+      <div class="form-group">
+        <label>اسم المنصة / الشركة المالية المشتبه بها</label>
+        <input type="text" id="compName" class="form-control" placeholder="مثال: Global Trading FX">
+      </div>
+      <div class="form-group">
+        <label>رابط موقع المنصة الرقمي</label>
+        <input type="text" id="compUrl" class="form-control" placeholder="https://example.com" style="direction:ltr;text-align:right;">
+      </div>
+      <div class="form-group">
+        <label>تفاصيل الشكوى أو الثغرة المرصودة</label>
+        <textarea id="compDesc" class="form-control" rows="4" placeholder="يرجى ذكر سبب الشكوى (مماطلة في السحب، ادعاء تراخيص وهمية، إلخ...)"></textarea>
+      </div>
+      <button class="submit-btn" onclick="submitReport()">
+        <i class="ti ti-radar"></i> إرسال البلاغ لرادار الفحص
+      </button>
+      <div id="formStatus" class="form-status"></div>
+    </div>
+  </div>
+</div>
+</div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo"><i class="ti ti-shield-check"></i> مركز التحقق</div>
+      <div class="footer-desc">المنخل الرقمي الحاسم لفحص البيانات ومطابقة التراخيص. الركيزة الأمنية ضمن رؤية المنظومة الرقمية المتكاملة 2026.</div>
+    </div>
+    <div class="footer-links">
+      <div class="link-group"><div class="group-title">المنظومة الرقمية</div><ul>
+        <li><a href="ecosystem.html">منصة "درع المستثمر"</a></li>
+        <li><a href="ecosystem.html">أكاديمية الأصول الرقمية</a></li>
+        <li><a href="index.html#search">مركز التحقق المباشر</a></li>
+      </ul></div>
+      <div class="link-group"><div class="group-title">الدعم القانوني</div><ul>
+        <li><a href="contact.html">بوابة محامي مجاني</a></li>
+        <li><a href="contact.html">تقديم بلاغ لهيئة الشكاوى</a></li>
+        <li><a href="contact.html">قوائم الحظر المحدثة</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 جميع الحقوق محفوظة. مركز التحقق.</div>
+    <div class="crypto-badge">SECURE SSL // AES-256 BIT ENCRYPTED</div>
+  </div>
+</footer>
+<script>
+function submitReport(){
+  var name=document.getElementById('compName').value.trim();
+  var url=document.getElementById('compUrl').value.trim();
+  var desc=document.getElementById('compDesc').value.trim();
+  var status=document.getElementById('formStatus');
+  if(!name||!url||!desc){
+    status.style.display='block';status.style.color='#FF4444';
+    status.style.borderColor='rgba(255,51,51,0.2)';status.style.background='rgba(255,51,51,0.05)';
+    status.textContent='> خطأ: يرجى تعبئة جميع الحقول قبل الإرسال.';return;
+  }
+  status.style.display='block';status.style.color='#39FF14';
+  status.style.borderColor='rgba(57,255,20,0.1)';status.style.background='rgba(57,255,20,0.05)';
+  status.textContent='> جاري تشفير البيانات وإرسالها...';
+  document.getElementById('compName').value='';
+  document.getElementById('compUrl').value='';
+  document.getElementById('compDesc').value='';
+  setTimeout(function(){status.textContent='> SUCCESS: تم إدراج النطاق في بيئة الفحص الفوري بنجاح.';},2000);
+}
+</script>
+</body>
+</html>

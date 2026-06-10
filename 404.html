@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — الصفحة غير موجودة | مركز التحقق</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--green:#39FF14;--green-dim:rgba(57,255,20,0.08);--green-border:rgba(57,255,20,0.15);--bg:#0B0F19;--bg2:#080C14;--muted:#6B7280;}
+body{background:var(--bg);color:#fff;font-family:'Cairo',sans-serif;min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,20,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,0.022) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+nav{background:rgba(11,15,25,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--green-border);padding:0 24px;position:relative;z-index:1;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:900;color:var(--green);text-decoration:none;}
+.nav-logo i{font-size:20px;}
+.main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;position:relative;z-index:1;}
+.error-wrap{text-align:center;max-width:500px;}
+.code-badge{font-family:monospace;font-size:11px;color:var(--green);background:var(--green-dim);border:1px solid var(--green-border);padding:5px 16px;border-radius:50px;letter-spacing:3px;display:inline-block;margin-bottom:28px;}
+.error-num{font-size:120px;font-weight:900;color:var(--green);line-height:1;margin-bottom:8px;font-family:monospace;opacity:.15;}
+.error-title{font-size:28px;font-weight:900;margin-bottom:12px;}
+.error-title span{color:var(--green);}
+.error-desc{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:36px;}
+.console-box{background:var(--bg2);border:1px solid var(--green-border);border-right:3px solid var(--green);border-radius:10px;padding:16px 20px;margin-bottom:36px;text-align:left;direction:ltr;}
+.console-box p{font-family:monospace;font-size:12px;line-height:1.9;}
+.c-red{color:#FF4444;}
+.c-green{color:var(--green);}
+.c-gray{color:var(--muted);}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#000;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:opacity .2s;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--green);border:1px solid var(--green-border);padding:12px 24px;border-radius:10px;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s;}
+.btn-secondary:hover{background:var(--green-dim);}
+footer{background:var(--bg2);border-top:1px solid var(--green-border);padding:20px;text-align:center;font-size:12px;color:var(--muted);position:relative;z-index:1;}
+footer span{color:var(--green);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor{display:inline-block;width:7px;height:13px;background:var(--green);animation:blink .9s infinite;vertical-align:middle;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><i class="ti ti-shield-check"></i> مركز التحقق</a>
+  </div>
+</nav>
+<div class="main">
+  <div class="error-wrap">
+    <div class="code-badge">ERROR 404</div>
+    <div class="error-num">404</div>
+    <h1 class="error-title">الصفحة <span>غير موجودة</span></h1>
+    <p class="error-desc">الرابط الذي أدخلته غير موجود أو تم نقله. تحقق من الرابط أو عد للصفحة الرئيسية.</p>
+    <div class="console-box">
+      <p><span class="c-red">> ERROR:</span> <span class="c-gray">Page not found — 404</span></p>
+      <p><span class="c-gray">> PATH:</span> <span class="c-red">/unknown-page</span></p>
+      <p><span class="c-green">> REDIRECT:</span> <span class="c-gray">verification-hub/index.html</span> <span class="cursor"></span></p>
+    </div>
+    <div class="btns">
+      <a href="index.html" class="btn-primary"><i class="ti ti-home"></i> العودة للرئيسية</a>
+      <a href="index.html#search" class="btn-secondary"><i class="ti ti-search"></i> افحص منصة</a>
+    </div>
+  </div>
+</div>
+<footer><span>مركز التحقق</span> — © 2026 جميع الحقوق محفوظة</footer>
+</body>
+</html>

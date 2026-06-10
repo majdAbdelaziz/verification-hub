@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://majdabdelaziz.github.io/verification-hub/sitemap.xml

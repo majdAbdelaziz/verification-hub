@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO — dynamic per article -->
+<title id="metaTitle">علامات النصب السبع التي تتجاهلها | مدونة مركز التحقق</title>
+<meta name="description" id="metaDesc" content="كل منصة نصب تترك آثاراً رقمية واضحة — دليل شامل لقراءة إشارات الاحتيال قبل أن تضع دولارك الأول.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="فريق مركز التحقق">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" id="ogTitle" content="علامات النصب السبع التي تتجاهلها">
+<meta property="og:description" id="ogDesc" content="دليل شامل لكشف منصات الاحتيال المالي.">
+<meta property="og:locale" content="ar_AR">
+<meta property="article:author" content="فريق مركز التحقق">
+
+<!-- Schema.org Article -->
+<script type="application/ld+json" id="schemaScript">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "علامات النصب السبع التي تتجاهلها قبل الاستثمار",
+  "author": {"@type":"Organization","name":"فريق مركز التحقق"},
+  "publisher": {"@type":"Organization","name":"مركز التحقق","url":"https://verification-hub.int"},
+  "datePublished": "2026-05-10",
+  "description": "كل منصة نصب تترك آثاراً رقمية واضحة — دليل شامل لقراءة هذه الإشارات.",
+  "url": "https://verification-hub.int/blog/article?id=1"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --green:#39FF14;
+  --green-dim:rgba(57,255,20,0.08);
+  --green-border:rgba(57,255,20,0.15);
+  --bg:#0B0F19;
+  --bg2:#080C14;
+  --card:#111827;
+  --text:#D1D5DB;
+  --heading:#F3F4F6;
+  --muted:#6B7280;
+  --mono:'IBM Plex Mono',monospace;
+}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Cairo',sans-serif;
+  min-height:100vh;overflow-x:hidden;
+  line-height:1.8;
+}
+body::before{
+  content:"";position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(57,255,20,0.022) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,255,20,0.022) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;z-index:0;
+}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(11,15,25,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--green-border);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+}
+.nav-logo{
+  display:flex;align-items:center;gap:9px;
+  font-size:17px;font-weight:900;color:var(--green);
+  text-decoration:none;
+}
+.nav-logo i{font-size:20px;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--green);}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--green);color:#000;
+  padding:7px 16px;border-radius:8px;
+  font-size:13px;font-weight:700;text-decoration:none;
+  transition:opacity .2s;
+}
+.nav-cta:hover{opacity:.85;}
+
+/* BREADCRUMB */
+.breadcrumb{
+  max-width:780px;margin:0 auto;
+  padding:20px 20px 0;
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;color:var(--muted);
+  position:relative;z-index:1;
+}
+.breadcrumb a{color:var(--muted);text-decoration:none;}
+.breadcrumb a:hover{color:var(--green);}
+.breadcrumb i{font-size:12px;}
+
+/* ARTICLE HERO */
+.article-hero{
+  max-width:780px;margin:0 auto;
+  padding:32px 20px 40px;
+  position:relative;z-index:1;
+}
+.art-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+.tag{
+  font-size:10px;font-weight:700;letter-spacing:1px;
+  padding:3px 12px;border-radius:50px;
+}
+.tag-red{background:rgba(255,68,68,0.1);color:#FF4444;border:1px solid rgba(255,68,68,0.2);}
+.tag-green{background:var(--green-dim);color:var(--green);border:1px solid var(--green-border);}
+.tag-warn{background:rgba(255,170,0,0.1);color:#FFAA00;border:1px solid rgba(255,170,0,0.2);}
+.tag-blue{background:rgba(99,179,237,0.1);color:#63B3ED;border:1px solid rgba(99,179,237,0.2);}
+
+.art-date,.art-read{
+  font-size:12px;color:var(--muted);
+  font-family:var(--mono);
+  display:flex;align-items:center;gap:5px;
+}
+.art-date i,.art-read i{font-size:13px;}
+
+.article-hero h1{
+  font-size:32px;font-weight:900;
+  color:var(--heading);line-height:1.35;
+  margin-bottom:16px;
+}
+.article-hero .lead{
+  font-size:16px;color:#9CA3AF;
+  line-height:1.8;
+  padding-bottom:24px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+/* ICON HERO */
+.icon-hero{
+  width:100%;height:220px;
+  border-radius:16px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:36px;position:relative;
+}
+.icon-hero i{font-size:80px;position:relative;z-index:1;}
+
+/* ARTICLE BODY */
+.article-body{
+  max-width:780px;margin:0 auto;
+  padding:0 20px 80px;
+  position:relative;z-index:1;
+}
+.article-body h2{
+  font-size:22px;font-weight:700;
+  color:var(--heading);
+  margin:36px 0 14px;
+  padding-right:16px;
+  border-right:3px solid var(--green);
+}
+.article-body h3{
+  font-size:17px;font-weight:700;
+  color:var(--heading);margin:24px 0 10px;
+}
+.article-body p{
+  font-size:15px;color:var(--text);
+  line-height:1.9;margin-bottom:16px;
+}
+.article-body ul,.article-body ol{
+  padding-right:20px;margin-bottom:16px;
+}
+.article-body li{
+  font-size:15px;color:var(--text);
+  line-height:1.9;margin-bottom:8px;
+}
+
+/* CALLOUT */
+.callout{
+  background:var(--card);
+  border:1px solid var(--green-border);
+  border-right:3px solid var(--green);
+  border-radius:10px;
+  padding:18px 20px;
+  margin:24px 0;
+  display:flex;gap:14px;align-items:flex-start;
+}
+.callout i{font-size:20px;color:var(--green);flex-shrink:0;margin-top:2px;}
+.callout p{margin:0;font-size:14px;color:#9CA3AF;line-height:1.7;}
+
+.callout-warn{border-right-color:#FFAA00;}
+.callout-warn i{color:#FFAA00;}
+
+/* STAT CARDS */
+.stat-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:14px;margin:28px 0;
+}
+.stat-box{
+  background:var(--card);border:1px solid var(--green-border);
+  border-radius:12px;padding:18px;text-align:center;
+}
+.stat-num{font-size:30px;font-weight:900;color:var(--green);}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* CTA BOX */
+.cta-box{
+  background:linear-gradient(135deg,#0d1f0a,#0f2a0d);
+  border:1px solid var(--green-border);
+  border-radius:16px;padding:32px;
+  text-align:center;margin:40px 0 0;
+}
+.cta-box h3{font-size:20px;font-weight:900;color:var(--green);margin-bottom:10px;}
+.cta-box p{font-size:14px;color:var(--muted);margin-bottom:20px;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green);color:#000;
+  padding:12px 28px;border-radius:10px;
+  font-size:15px;font-weight:700;
+  text-decoration:none;transition:opacity .2s;
+}
+.cta-btn:hover{opacity:.85;}
+
+/* AUTHOR */
+.author-box{
+  display:flex;align-items:center;gap:16px;
+  background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:14px;padding:20px;margin-top:40px;
+}
+.author-av{
+  width:50px;height:50px;border-radius:50%;flex-shrink:0;
+  background:var(--green-dim);border:1px solid var(--green-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;font-weight:900;color:var(--green);
+}
+.author-info .name{font-size:15px;font-weight:700;color:var(--heading);}
+.author-info .bio{font-size:13px;color:var(--muted);margin-top:3px;line-height:1.6;}
+
+/* RELATED */
+.related{
+  max-width:780px;margin:0 auto;
+  padding:0 20px 60px;
+  position:relative;z-index:1;
+}
+.related h2{
+  font-size:20px;font-weight:700;color:var(--heading);
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.related h2 i{font-size:20px;color:var(--green);}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.rel-card{
+  background:var(--card);border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;padding:18px;
+  text-decoration:none;color:inherit;
+  transition:border-color .3s,transform .3s;
+  display:flex;flex-direction:column;gap:8px;
+}
+.rel-card:hover{border-color:var(--green-border);transform:translateY(-3px);}
+.rel-tag{font-size:10px;font-weight:700;letter-spacing:1px;}
+.rel-title{font-size:14px;font-weight:700;color:var(--heading);line-height:1.5;}
+.rel-read{font-size:11px;color:var(--muted);font-family:var(--mono);}
+
+/* PROGRESS BAR */
+#progress{
+  position:fixed;top:0;left:0;
+  height:2px;background:var(--green);
+  width:0%;transition:width .1s;z-index:999;
+}
+
+/* FOOTER */
+footer{
+  background:var(--bg2);border-top:1px solid var(--green-border);
+  padding:24px 20px;text-align:center;
+  font-size:12px;color:var(--muted);
+  position:relative;z-index:1;
+}
+footer span{color:var(--green);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:600px){
+  .article-hero h1{font-size:24px;}
+  .nav-links{display:none;}
+  .stat-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo"><i class="ti ti-shield-check"></i> مركز التحقق</a>
+    <div class="nav-links">
+      <a href="../index.html">الرئيسية</a>
+      <a href="index.html" class="active">المدونة</a>
+      <a href="../contact.html">البلاغات</a>
+    </div>
+    <a href="../index.html" class="nav-cta"><i class="ti ti-search"></i> افحص الآن</a>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb" id="breadcrumb">
+  <a href="../index.html">الرئيسية</a>
+  <i class="ti ti-chevron-left"></i>
+  <a href="index.html">المدونة</a>
+  <i class="ti ti-chevron-left"></i>
+  <span id="breadTitle">جاري التحميل...</span>
+</div>
+
+<!-- HERO -->
+<article>
+<div class="article-hero">
+  <div class="icon-hero" id="iconHero">
+    <i id="heroIcon" class="ti ti-alert-octagon" style="color:#FF4444"></i>
+  </div>
+  <div class="art-meta">
+    <span class="tag tag-red" id="artTag">كشف احتيال</span>
+    <span class="art-date"><i class="ti ti-calendar"></i> <span id="artDate">2026-05-10</span></span>
+    <span class="art-read"><i class="ti ti-clock"></i> <span id="artRead">7 دقائق</span></span>
+  </div>
+  <h1 id="artTitle">علامات النصب السبع التي تتجاهلها قبل الاستثمار</h1>
+  <p class="lead" id="artLead">كل منصة نصب تترك آثاراً رقمية واضحة — عمر النطاق، غياب عنوان فعلي، وعود أرباح خيالية. دليل شامل لقراءة هذه الإشارات قبل أن تضع دولارك الأول.</p>
+</div>
+
+<!-- BODY -->
+<div class="article-body" id="artBody">
+  <!-- content injected by JS -->
+</div>
+</article>
+
+<!-- RELATED -->
+<div class="related">
+  <h2><i class="ti ti-articles"></i> مقالات ذات صلة</h2>
+  <div class="related-grid" id="relatedGrid"></div>
+</div>
+
+<footer>
+  <span>مركز التحقق</span> &mdash; جميع الحقوق محفوظة &copy; 2026
+</footer>
+
+<script>
+/* ── DATA ── */
+var articles = {
+  "1": {
+    title:"علامات النصب السبع التي تتجاهلها قبل الاستثمار",
+    lead:"كل منصة نصب تترك آثاراً رقمية واضحة — دليل شامل لقراءة هذه الإشارات قبل أن تضع دولارك الأول.",
+    tag:"كشف احتيال", tagClass:"tag-red",
+    date:"2026-05-10", read:"7 دقائق",
+    icon:"ti-alert-octagon", iconColor:"#FF4444",
+    heroBg:"linear-gradient(135deg,#1a0a0a,#2d0f0f)",
+    related:["2","5","6"],
+    body:`
+<h2>لماذا يقع الناس في فخ المنصات الوهمية؟</h2>
+<p>الإجابة ليست الجشع دائماً — بل التصميم الاحترافي المتعمد للخداع. منصات النصب اليوم تستثمر مئات الآلاف من الدولارات في بناء واجهات تبدو أكثر احترافية من الشركات الحقيقية. لكن مهما بلغ التمويه، تبقى الآثار الرقمية موجودة لمن يعرف أين يبحث.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="stat-num">87%</div><div class="stat-lbl">من منصات النصب عمرها أقل من 6 أشهر</div></div>
+  <div class="stat-box"><div class="stat-num">$4.6B</div><div class="stat-lbl">خسائر الاحتيال المالي الرقمي في 2025</div></div>
+  <div class="stat-box"><div class="stat-num">72%</div><div class="stat-lbl">من الضحايا يتجاهلون التحقق من الترخيص</div></div>
+</div>
+
+<h2>العلامة الأولى: عمر النطاق المشبوه</h2>
+<p>أول سؤال تطرحه: متى سُجّل هذا الموقع؟ أدوات WHOIS تعطيك التاريخ الدقيق في ثوانٍ. موقع يدّعي خبرة 10 سنوات في السوق لكن نطاقه سُجّل قبل 4 أشهر — هذا تناقض صارخ يكشف الكذبة كاملة.</p>
+
+<div class="callout">
+  <i class="ti ti-info-circle"></i>
+  <p>نظامنا يفحص عمر النطاق تلقائياً ويضع أي موقع عمره أقل من 180 يوماً تحت المراقبة الفورية بغض النظر عن مظهره.</p>
+</div>
+
+<h2>العلامة الثانية: غياب الترخيص أو تزويره</h2>
+<p>الترخيص الحقيقي له رقم مسجّل في قاعدة بيانات الهيئة المانحة. كثير من المحتالين يعرضون صور شهادات مزوّرة أو يسرقون أرقام تراخيص شركات حقيقية. التحقق الوحيد الموثوق هو الذهاب مباشرة لموقع الهيئة الرقابية وإدخال الرقم يدوياً.</p>
+
+<h2>العلامة الثالثة: وعود العوائد الخيالية</h2>
+<p>أي منصة تضمن لك عائداً ثابتاً يتجاوز 2-3% شهرياً بدون مخاطر — هي إما تكذب أو تدير مخطط بونزي. الأسواق المالية الحقيقية لا تعرف الضمان. العائد الثابت المضمون هو علامة احتيال كلاسيكية.</p>
+
+<div class="callout callout-warn">
+  <i class="ti ti-alert-triangle"></i>
+  <p>قاعدة ذهبية: كلما كان الوعد بالربح أكبر وأسرع، كلما كان الخطر أعلى. لا توجد في العالم منصة شرعية تضمن 10% شهرياً.</p>
+</div>
+
+<h2>العلامات الأربع المتبقية</h2>
+<ul>
+  <li><strong>العلامة الرابعة:</strong> غياب عنوان مادي حقيقي قابل للتحقق — البنايات الوهمية على Google Maps شائعة جداً.</li>
+  <li><strong>العلامة الخامسة:</strong> تعقيد عمليات السحب — المنصات الشرعية تسمح بالسحب بسهولة. النصابون يخترعون ذرائع لا تنتهي.</li>
+  <li><strong>العلامة السادسة:</strong> الضغط على السرعة — "العرض ينتهي خلال 24 ساعة" هو تلاعب نفسي كلاسيكي لمنعك من التفكير والتحقق.</li>
+  <li><strong>العلامة السابعة:</strong> غياب فريق حقيقي — صور الـ "team" مأخوذة من مواقع صور مجانية. ابحث عن صور الفريق على Google Images.</li>
+</ul>
+
+<h2>الخلاصة: الفحص قبل الاستثمار ليس خياراً</h2>
+<p>دقيقتان من التحقق قبل الاستثمار يمكن أن تنقذ سنوات من المدخرات. أدواتنا في مركز التحقق تجمع كل هذه الفحوصات في مكان واحد وتعطيك الحكم في أقل من 10 ثوانٍ.</p>
+
+<div class="cta-box">
+  <h3>افحص أي منصة الآن مجاناً</h3>
+  <p>أدخل رابط الموقع أو اسم الشركة وستحصل على تقرير فوري شامل.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> ابدأ الفحص</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال، مع خبرة تمتد لسنوات في رصد أنماط الاحتيال المالي الإلكتروني.</div>
+  </div>
+</div>
+`
+  },
+  "2": {
+    title:"كيف تقرأ ترخيص FCA البريطاني وتتحقق منه في دقيقتين",
+    lead:"رقم الترخيص وحده لا يكفي — كثير من المحتالين يسرقون أرقام تراخيص شركات حقيقية. خطوات عملية للتحقق المباشر.",
+    tag:"تراخيص", tagClass:"tag-green",
+    date:"2026-05-03", read:"5 دقائق",
+    icon:"ti-certificate", iconColor:"#39FF14",
+    heroBg:"linear-gradient(135deg,#0a1a0d,#0d2e14)",
+    related:["1","5","6"],
+    body:`
+<h2>ما هي FCA ولماذا هي المرجع الأول؟</h2>
+<p>هيئة السلوك المالي البريطانية (Financial Conduct Authority) هي من أصعب الهيئات الرقابية في العالم للحصول على ترخيص منها. لهذا السبب، يُعتبر ترخيصها معياراً ذهبياً في الصناعة المالية — وأيضاً لهذا السبب يحاول المحتالون تزويره أو سرقته.</p>
+
+<h2>خطوات التحقق المباشر من FCA</h2>
+<ol>
+  <li>اذهب مباشرة إلى <strong>register.fca.org.uk</strong></li>
+  <li>أدخل اسم الشركة أو رقم الترخيص في خانة البحث</li>
+  <li>تحقق أن الاسم المسجّل يطابق تماماً اسم الموقع الذي تتعامل معه</li>
+  <li>تحقق من حالة الترخيص: Authorised وليس Cancelled أو Suspended</li>
+  <li>تحقق من نطاق الأنشطة المرخّصة — هل تشمل النشاط الذي تعرضه المنصة؟</li>
+</ol>
+
+<div class="callout">
+  <i class="ti ti-info-circle"></i>
+  <p>الحيلة الشائعة: بعض المنصات تعرض رقم ترخيص شركة حقيقية مرخّصة لكنها منفصلة تماماً عنها. دائماً تحقق أن اسم الشركة المسجّل في FCA هو نفس اسم الموقع الذي تتعامل معه.</p>
+</div>
+
+<h2>هيئات رقابية أخرى موثوقة</h2>
+<ul>
+  <li><strong>SEC الأمريكية:</strong> sec.gov/cgi-bin/browse-edgar</li>
+  <li><strong>ASIC الأسترالية:</strong> moneysmart.gov.au/check</li>
+  <li><strong>هيئة الأوراق المالية السعودية:</strong> cma.org.sa</li>
+  <li><strong>هيئة الأوراق المالية الإماراتية (SCA):</strong> sca.gov.ae</li>
+</ul>
+
+<div class="cta-box">
+  <h3>تحقق من أي ترخيص تلقائياً</h3>
+  <p>نظامنا يتحقق من قواعد بيانات 47 هيئة رقابية في ثوانٍ.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> افحص الترخيص</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال.</div>
+  </div>
+</div>
+`
+  },
+  "3": {
+    title:"تحقيق: كيف جمعت منصة وهمية 4 مليون دولار في 8 أشهر",
+    lead:"قصة كاملة موثّقة بالأدلة الرقمية — من تسجيل النطاق بهوية مزوّرة إلى الاختفاء الكامل مع أموال الضحايا.",
+    tag:"تحقيق", tagClass:"tag-warn",
+    date:"2026-04-21", read:"12 دقيقة",
+    icon:"ti-zoom-money", iconColor:"#FFAA00",
+    heroBg:"linear-gradient(135deg,#1a1400,#2e2200)",
+    related:["1","4","5"],
+    body:`
+<h2>البداية: نطاق مسجّل بهوية مجهولة</h2>
+<p>في سبتمبر 2024، سُجّل النطاق "alphafx-pro.com" عبر مسجّل نطاقات في بنما باستخدام خدمة إخفاء الهوية. تكلفة التسجيل: 12 دولاراً. الوقت المستغرق لبناء الموقع الاحترافي: أسبوعان. الأموال المجموعة: 4.1 مليون دولار في 8 أشهر.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="stat-num">$4.1M</div><div class="stat-lbl">إجمالي الأموال المختلسة</div></div>
+  <div class="stat-box"><div class="stat-num">847</div><div class="stat-lbl">ضحية من 12 دولة</div></div>
+  <div class="stat-box"><div class="stat-num">8</div><div class="stat-lbl">أشهر قبل الاختفاء</div></div>
+</div>
+
+<h2>منظومة التسويق الاحتيالية</h2>
+<p>استثمرت العصابة 200,000 دولار في حملات إعلانية على منصات التواصل الاجتماعي. استهدفت بشكل مدروس المجتمعات العربية في الخليج وأوروبا. أنشأت شبكة من "المؤثرين" المدفوعين الذين يعرضون أرباحاً حقيقية في البداية — مموّلة من أموال الضحايا الجدد.</p>
+
+<div class="callout callout-warn">
+  <i class="ti ti-alert-triangle"></i>
+  <p>مخطط بونزي كلاسيكي: الأرباح الأولى حقيقية ومموّلة من أموال المستثمرين الجدد. هدفها بناء الثقة وتشجيع الاستثمار الأكبر قبل الاختفاء.</p>
+</div>
+
+<h2>كيف كان يمكن كشفها؟</h2>
+<ul>
+  <li>عمر النطاق: أقل من شهرين عند إطلاق الحملة التسويقية</li>
+  <li>ترخيص مسروق من شركة بريطانية حقيقية لكن منفصلة تماماً</li>
+  <li>عنوان المكتب المزعوم في لندن: مركز خدمات افتراضية بـ 50 جنيه شهرياً</li>
+  <li>فريق الإدارة: صور مأخوذة من موقع stock photos</li>
+</ul>
+
+<div class="cta-box">
+  <h3>لا تكن الضحية القادمة</h3>
+  <p>فحص بسيط يكشف كل هذه التناقضات في أقل من 10 ثوانٍ.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> افحص الآن</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال.</div>
+  </div>
+</div>
+`
+  },
+  "4": {
+    title:"البلوكشين ليس ضماناً للأمان — الحقيقة التي يخفيها المحتالون",
+    lead:"استخدام كلمة بلوكشين لا يجعل المنصة موثوقة. شرح مبسّط لكيفية توظيف هذه التقنية في عمليات احتيال متطورة.",
+    tag:"تعليم مالي", tagClass:"tag-blue",
+    date:"2026-04-14", read:"8 دقائق",
+    icon:"ti-brand-blockchain", iconColor:"#63B3ED",
+    heroBg:"linear-gradient(135deg,#0a0f1a,#0f1a2e)",
+    related:["1","3","5"],
+    body:`
+<h2>ما الذي يضمنه البلوكشين فعلاً؟</h2>
+<p>البلوكشين يضمن شيئاً واحداً فقط: أن البيانات المسجّلة عليه لا يمكن تعديلها. هذا كل شيء. لا يضمن أن المنصة شرعية، ولا أن أموالك ستُعاد إليك، ولا أن فريق الإدارة حقيقي.</p>
+
+<div class="callout">
+  <i class="ti ti-info-circle"></i>
+  <p>العقود الذكية (Smart Contracts) يمكن برمجتها لتحويل أموالك تلقائياً لمحفظة المحتال بعد فترة زمنية معينة — وهذا "موثّق على البلوكشين" بشكل كامل.</p>
+</div>
+
+<h2>أشكال الاحتيال عبر البلوكشين</h2>
+<ul>
+  <li><strong>Rug Pull:</strong> بناء مشروع، جذب مستثمرين، ثم سحب كل السيولة فجأة</li>
+  <li><strong>Honeypot:</strong> عقد ذكي يسمح بالشراء لكن لا يسمح بالبيع</li>
+  <li><strong>Pump and Dump:</strong> رفع سعر عملة مصطنعة ثم البيع الجماعي</li>
+  <li><strong>عناوين مشابهة:</strong> إنشاء عناوين محافظ مشابهة لعناوين موثوقة</li>
+</ul>
+
+<h2>كيف تحمي نفسك؟</h2>
+<p>قبل الاستثمار في أي مشروع يدّعي استخدام البلوكشين، تحقق من: هوية الفريق المؤسس، كود العقد الذكي (يجب أن يكون مفتوح المصدر ومراجعاً من جهة مستقلة)، وتاريخ المشروع ومصادر التمويل.</p>
+
+<div class="cta-box">
+  <h3>فحص المنصات يشمل التحقق من العقود الذكية</h3>
+  <p>نظامنا يحلل مؤشرات الاحتيال في المشاريع القائمة على البلوكشين.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> ابدأ الفحص</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال.</div>
+  </div>
+</div>
+`
+  },
+  "5": {
+    title:"عمر النطاق: السلاح الخفي في كشف المنصات المشبوهة",
+    lead:"87% من منصات النصب المكتشفة عمرها أقل من 6 أشهر. كيف تستخدم أدوات WHOIS وأنظمتنا للكشف الفوري.",
+    tag:"كشف احتيال", tagClass:"tag-green",
+    date:"2026-04-07", read:"6 دقائق",
+    icon:"ti-clock-search", iconColor:"#39FF14",
+    heroBg:"linear-gradient(135deg,#0f1a0a,#1a2e0f)",
+    related:["1","2","3"],
+    body:`
+<h2>لماذا عمر النطاق مؤشر قوي جداً؟</h2>
+<p>بناء منصة نصب مكلف ومحفوف بالمخاطر القانونية. المحتالون لا يريدون البقاء طويلاً — يسجّلون النطاق، يجمعون أكبر قدر ممكن من المال، ثم يختفون. هذا يعني أن معظم منصات النصب جديدة نسبياً عند اكتشافها.</p>
+
+<div class="stat-row">
+  <div class="stat-box"><div class="stat-num">87%</div><div class="stat-lbl">من النصب عمرها أقل من 6 أشهر</div></div>
+  <div class="stat-box"><div class="stat-num">94%</div><div class="stat-lbl">منها أقل من سنة عند الاختفاء</div></div>
+  <div class="stat-box"><div class="stat-num">$12</div><div class="stat-lbl">تكلفة تسجيل نطاق جديد</div></div>
+</div>
+
+<h2>كيف تفحص عمر النطاق يدوياً؟</h2>
+<ol>
+  <li>اذهب إلى whois.domaintools.com</li>
+  <li>أدخل اسم النطاق بدون https://</li>
+  <li>ابحث عن "Created Date" أو "Registration Date"</li>
+  <li>أي موقع يدّعي خبرة طويلة لكن نطاقه حديث — علامة خطر فورية</li>
+</ol>
+
+<div class="callout">
+  <i class="ti ti-info-circle"></i>
+  <p>بعض المحتالين يشترون نطاقات قديمة لتمرير هذا الفحص. لهذا السبب يجب الجمع بين فحص العمر وفحص الترخيص والقائمة السوداء معاً — وهذا بالضبط ما تفعله خوارزميتنا الثلاثية.</p>
+</div>
+
+<div class="cta-box">
+  <h3>الفحص الثلاثي في ثوانٍ</h3>
+  <p>عمر النطاق + التراخيص + القائمة السوداء — كل شيء في مكان واحد.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> افحص الآن</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال.</div>
+  </div>
+</div>
+`
+  },
+  "6": {
+    title:"دليل هيئات الرقابة المالية العالمية التي يجب أن تعرفها",
+    lead:"من FCA إلى SEC وصولاً للهيئات الخليجية — دليل مرجعي كامل لأهم جهات الرقابة المالية عالمياً.",
+    tag:"تراخيص", tagClass:"tag-blue",
+    date:"2026-03-30", read:"9 دقائق",
+    icon:"ti-world-check", iconColor:"#63B3ED",
+    heroBg:"linear-gradient(135deg,#0a0f1a,#151f30)",
+    related:["2","1","5"],
+    body:`
+<h2>لماذا تحتاج لمعرفة هذه الهيئات؟</h2>
+<p>الترخيص من هيئة رقابية معتمدة هو الحد الأدنى من الضمان لأي منصة مالية. بدونه، لا حماية قانونية، ولا جهة يمكن اللجوء إليها عند النزاع. فهم هذه الهيئات يمكّنك من التحقق بشكل مستقل.</p>
+
+<h2>أقوى الهيئات الرقابية عالمياً</h2>
+
+<h3>FCA — المملكة المتحدة</h3>
+<p>الأكثر صرامة عالمياً. تراقب 60,000+ شركة. موقع التحقق: register.fca.org.uk — البحث مجاني وفوري.</p>
+
+<h3>SEC — الولايات المتحدة</h3>
+<p>تراقب الأوراق المالية والبورصات الأمريكية. للتحقق: sec.gov/cgi-bin/browse-edgar</p>
+
+<h3>ASIC — أستراليا</h3>
+<p>من أكثر الهيئات شفافية. قاعدة بيانات مفتوحة بالكامل: moneysmart.gov.au</p>
+
+<h2>الهيئات الخليجية والعربية</h2>
+<ul>
+  <li><strong>هيئة الأوراق المالية السعودية (CMA):</strong> cma.org.sa — تراقب السوق المالية السعودية</li>
+  <li><strong>هيئة الأوراق المالية الإماراتية (SCA):</strong> sca.gov.ae</li>
+  <li><strong>هيئة أسواق المال الكويتية (CMA Kuwait):</strong> cma.gov.kw</li>
+  <li><strong>مصرف البحرين المركزي (CBB):</strong> cbb.gov.bh</li>
+  <li><strong>الهيئة العامة لسوق المال القطرية (QFMA):</strong> qfma.org.qa</li>
+</ul>
+
+<div class="callout">
+  <i class="ti ti-info-circle"></i>
+  <p>نظامنا مرتبط بقواعد بيانات جميع هذه الهيئات الـ 47 ويتحقق منها بالتوازي في أقل من 10 ثوانٍ — بدلاً من أن تزور كل موقع يدوياً.</p>
+</div>
+
+<div class="cta-box">
+  <h3>تحقق من أي ترخيص في 47 دولة فوراً</h3>
+  <p>نظام الفحص الثلاثي يجمع كل هذه الهيئات في فحص واحد.</p>
+  <a href="../index.html" class="cta-btn"><i class="ti ti-search"></i> افحص الترخيص</a>
+</div>
+
+<div class="author-box">
+  <div class="author-av">فح</div>
+  <div class="author-info">
+    <div class="name">فريق مركز التحقق</div>
+    <div class="bio">فريق متخصص في تحليل المنصات المالية الرقمية وكشف الاحتيال.</div>
+  </div>
+</div>
+`
+  }
+};
+
+var relatedMeta = {
+  "1":{title:"علامات النصب السبع...",tag:"كشف احتيال",tagClass:"tag-red",read:"7 دقائق"},
+  "2":{title:"كيف تقرأ ترخيص FCA...",tag:"تراخيص",tagClass:"tag-green",read:"5 دقائق"},
+  "3":{title:"تحقيق: منصة وهمية وأربعة ملايين...",tag:"تحقيق",tagClass:"tag-warn",read:"12 دقيقة"},
+  "4":{title:"البلوكشين ليس ضماناً للأمان...",tag:"تعليم مالي",tagClass:"tag-blue",read:"8 دقائق"},
+  "5":{title:"عمر النطاق: السلاح الخفي...",tag:"كشف احتيال",tagClass:"tag-green",read:"6 دقائق"},
+  "6":{title:"دليل هيئات الرقابة العالمية...",tag:"تراخيص",tagClass:"tag-blue",read:"9 دقائق"}
+};
+
+/* ── LOAD ── */
+function getParam(name){
+  return new URLSearchParams(window.location.search).get(name)||"1";
+}
+
+function load(){
+  var id=getParam('id');
+  var a=articles[id]||articles["1"];
+
+  document.getElementById('metaTitle').textContent=a.title+' | مدونة مركز التحقق';
+  document.getElementById('metaDesc').setAttribute('content',a.lead);
+  document.getElementById('ogTitle').setAttribute('content',a.title);
+  document.getElementById('ogDesc').setAttribute('content',a.lead);
+
+  document.getElementById('breadTitle').textContent=a.title.substring(0,40)+'...';
+  document.getElementById('artTitle').textContent=a.title;
+  document.getElementById('artLead').textContent=a.lead;
+  document.getElementById('artDate').textContent=a.date;
+  document.getElementById('artRead').textContent=a.read;
+
+  var tagEl=document.getElementById('artTag');
+  tagEl.textContent=a.tag;
+  tagEl.className='tag '+a.tagClass;
+
+  var heroIcon=document.getElementById('heroIcon');
+  heroIcon.className='ti '+a.icon;
+  heroIcon.style.color=a.iconColor;
+
+  var iconHero=document.getElementById('iconHero');
+  iconHero.style.background=a.heroBg;
+
+  document.getElementById('artBody').innerHTML=a.body;
+
+  var rg=document.getElementById('relatedGrid');
+  rg.innerHTML='';
+  a.related.forEach(function(rid){
+    var r=relatedMeta[rid];
+    if(!r)return;
+    rg.innerHTML+='<a href="article.html?id='+rid+'" class="rel-card">'
+      +'<span class="tag '+r.tagClass+' rel-tag">'+r.tag+'</span>'
+      +'<div class="rel-title">'+r.title+'</div>'
+      +'<div class="rel-read"><i class="ti ti-clock" style="font-size:11px"></i> '+r.read+'</div>'
+      +'</a>';
+  });
+}
+
+/* ── PROGRESS ── */
+window.addEventListener('scroll',function(){
+  var s=document.documentElement;
+  var pct=(s.scrollTop/(s.scrollHeight-s.clientHeight))*100;
+  document.getElementById('progress').style.width=Math.min(pct,100)+'%';
+});
+
+load();
+</script>
+</body>
+</html>
